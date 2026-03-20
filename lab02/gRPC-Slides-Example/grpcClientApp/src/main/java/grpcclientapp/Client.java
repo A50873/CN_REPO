@@ -6,6 +6,7 @@ import io.grpc.stub.StreamObserver;
 import servicestubs.*;
 
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
 
 public class Client {
     // generic ClientApp for Calling a grpc Service
@@ -46,6 +47,8 @@ public class Client {
                             addSequenceOfNumbersCall(); break;
                         case 5:
                             bidirectionalStreamingCall(); break;
+                        case 6:
+                            findPrimes(); break;
                         case 99:  System.exit(0);
                     }
                 } catch (Exception ex) {
@@ -150,6 +153,33 @@ public class Client {
         // to terminate after get all results
     }
 
+    static void findPrimes() throws InterruptedException {
+        // Asynchronous non-blocking call
+        int chunkSize = 100;
+        int totalEnd = 500;
+        int calls = totalEnd / chunkSize; // 5
+
+        CountDownLatch done = new CountDownLatch(calls);
+
+        for (int i = 0; i < calls; i++) {
+            int start = i * chunkSize + 1;
+            int end = (i + 1) * chunkSize;
+
+            PrimeNumbersStream primeStream = new PrimeNumbersStream(done);
+
+            IntervalNumbers req = IntervalNumbers.newBuilder()
+                    .setStart(start)
+                    .setEnd(end)
+                    .build();
+
+            noBlockStub.findPrimes(req, primeStream);
+        }
+
+        // wait for all streams
+        done.await();
+        System.out.println("Todas as 5 chamadas findPrimes terminaram.");
+    }
+
 
     private static int Menu() {
         int op;
@@ -162,11 +192,12 @@ public class Client {
             System.out.println(" 3 - Case server stream: get N even numbers: Asynchronous call");
             System.out.println(" 4 - Case client stream: add sequence of numbers between 1 and N");
             System.out.println(" 5 - Case bidirectional streaming (client and server): multiple add operations)");
+            System.out.println(" 6 - Case server stream: get prime numbers between 1 and 500: Asynchronous call");
             System.out.println("99 - Exit");
             System.out.println();
             System.out.println("Choose an Option?");
             op = scan.nextInt();
-        } while (!((op >= 1 && op <= 5) || op == 99));
+        } while (!((op >= 1 && op <= 6) || op == 99));
         return op;
     }
 

@@ -1,0 +1,4 @@
+3.
+Se o servidor não implementar a operação "isAlive" do contrato, esta continua disponível no stub do cliente, pois este stub é gerado a partir do ".proto". A diferença é o comportamento em execução. Se o servidor não fizer override do método,  a implementação base deste responde com erro "UNIMPLEMENTED".
+
+ 

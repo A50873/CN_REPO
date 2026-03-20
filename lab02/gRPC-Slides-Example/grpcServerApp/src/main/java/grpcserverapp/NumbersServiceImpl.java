@@ -88,10 +88,38 @@ public class NumbersServiceImpl extends NumbersServiceGrpc.NumbersServiceImplBas
         };
     }
 
+    @Override
+    public void findPrimes(IntervalNumbers request, StreamObserver<IntNumber> responseObserver) {
+        System.out.println("findPrimes called!");
+        if (request.getStart() == request.getEnd()) {
+            responseObserver.onError(new StatusException(Status.INVALID_ARGUMENT.withDescription("Null interval!")));
+            return;
+        }
+        int init = request.getStart();
+        int end = request.getEnd();
+
+        for (int i = Math.max(2, init); i <= end; i++) {
+            if (isPrime(i)) responseObserver.onNext(IntNumber.newBuilder().setIntnumber(i).build());
+
+            simulateExecutionTime();
+        }
+        responseObserver.onCompleted();
+    }
+
+    private boolean isPrime(int n) {
+        if (n < 2) return false;
+        if (n == 2) return true;
+        if (n % 2 == 0) return false;
+        for (int d = 3; d * d <= n; d += 2) {
+            if (n % d == 0) return false;
+        }
+        return true;
+    }
+
     private void simulateExecutionTime() {
         try {
             // simulate processing time between 200ms and 3s
-            Thread.sleep(new Random().nextInt(2800) + 200);
+            Thread.sleep(new Random().nextInt(100) + 200);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
