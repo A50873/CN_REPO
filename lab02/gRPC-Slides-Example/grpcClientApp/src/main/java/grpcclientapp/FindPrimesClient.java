@@ -8,8 +8,8 @@ import servicestubs.NumbersServiceGrpc;
 import java.util.concurrent.CountDownLatch;
 
 public class FindPrimesClient {
-    private static String svcIP = "localhost";
-    private static int svcPort = 8000;
+    private static String svcIP = "34.175.12.144";
+    private static int svcPort = 7500;
     private static NumbersServiceGrpc.NumbersServiceStub noBlockStub;
 
     public static void main(String[] args) {

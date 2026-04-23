@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/grpcForumClientApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumClientApp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumContract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumContract/src/main/proto" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumContract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumContract/target/generated-sources/protobuf/grpc-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumContract/target/generated-sources/protobuf/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumServerApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/grpcForumServerApp/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
