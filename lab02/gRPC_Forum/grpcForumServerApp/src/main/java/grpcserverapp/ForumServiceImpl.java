@@ -112,8 +112,18 @@ public class ForumServiceImpl extends ForumGrpc.ForumImplBase {
     }
 
     private void downloadBlobFromBucket(String bucketName, String blobName) throws IOException {
-        // Criar diretório Downloads com o username real
-        Path downloadDir = Path.of("C:", "Users", System.getProperty("user.name"), "Downloads");
+        Path downloadDir;
+        String osName = System.getProperty("os.name").toLowerCase();
+
+        // Detetar SO
+        if (osName.contains("win")) {
+            // Windows
+            downloadDir = Paths.get("C:", "Users", System.getProperty("user.name"), "Downloads");
+        } else {
+            // Linux/Unix/macOS
+            downloadDir = Paths.get(System.getProperty("user.home"), "Downloads");
+        }
+
         Files.createDirectories(downloadDir);
 
         // Caminho completo do ficheiro a gravar

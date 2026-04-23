@@ -22,9 +22,9 @@ import java.util.concurrent.CountDownLatch;
 
 public class Client {
     // generic ClientApp for Calling a grpc Service
-    //private static String svcIP = "34.175.114.71";
-    private static String svcIP = "localhost";
-    private static int svcPort = 8000;
+    private static String svcIP = "34.175.139.166";
+    // private static String svcIP = "localhost";
+    private static int svcPort = 7500;
     private static ForumGrpc.ForumBlockingStub blockingStub;
     private static ForumGrpc.ForumStub noBlockStub;
     private static String userName;
