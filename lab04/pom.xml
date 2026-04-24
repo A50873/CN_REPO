@@ -1,0 +1,22 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.isel.firestore</groupId>
+    <artifactId>firestore-lab</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Google Cloud Firestore Lab</name>
+
+    <properties>
+        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+    </properties>
+
+    <dependencies>
+        <!-- Firestore -->
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-firestore</artifactId>
+            <version>3.41.0</version>
+        </dependency>
+    </dependencies>
+</project>
