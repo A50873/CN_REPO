@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lab02/gRPC_Forum/grpcForumContract/pom.xml" />
+        <option value="$PROJECT_DIR$/lab02/gRPC_Forum/grpcForumClientApp/pom.xml" />
+        <option value="$PROJECT_DIR$/lab02/gRPC_Forum/grpcForumServerApp/pom.xml" />
+        <option value="$PROJECT_DIR$/lab02/gRPC-Slides-Example/grpcContract/pom.xml" />
+        <option value="$PROJECT_DIR$/lab02/gRPC-Slides-Example/grpcClientApp/pom.xml" />
+        <option value="$PROJECT_DIR$/lab02/gRPC-Slides-Example/grpcServerApp/pom.xml" />
+        <option value="$PROJECT_DIR$/lab03/CNStorageBaseAlunos/pom.xml" />
+        <option value="$PROJECT_DIR$/lab04/pom.xml" />
+        <option value="$PROJECT_DIR$/lab05/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="25" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

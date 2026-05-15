@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package cn2026labels;
+
+option java_multiple_files = true;
+option java_package = "gcpservices.grpc";
+option java_outer_classname = "Cn2026LabelsProto";
+
+service LabelsService {
+  // SF1: client streams image chunks; the server stores the image in Cloud Storage,
+  // publishes a Pub/Sub message, and returns the processing request identifier.
+  rpc SubmitImage(stream ImageChunk) returns (ProcessingRequest);
+
+  // SF2: fetch the processing state and all labels/translations for a request.
+  rpc GetResult(RequestId) returns (ProcessingInfo);
+
+  // SF3: list file names that were processed between two dates and contain a label.
+  rpc ListFilesByLabel(DateLabelQuery) returns (FileNames);
+}
+
+service ElasticityService {
+  // SG: intentionally separated so scaling can evolve independently from SF.
+  rpc ScaleGrpcServers(ScaleRequest) returns (ScaleReply);
+  rpc ScaleWorkers(ScaleRequest) returns (ScaleReply);
+}
+
+message ImageChunk {
+  string request_id = 1;
+  string file_name = 2;
+  string bucket_name = 3;
+  string blob_name = 4;
+  string content_type = 5;
+  bytes data = 6;
+}
+
+message ProcessingRequest {
+  string request_id = 1;
+  string bucket_name = 2;
+  string blob_name = 3;
+  string status = 4;
+}
+
+message RequestId {
+  string request_id = 1;
+}
+
+message LabelTranslation {
+  string label = 1;
+  string translated_label = 2;
+  double confidence = 3;
+}
+
+message ProcessingInfo {
+  string request_id = 1;
+  string file_name = 2;
+  string bucket_name = 3;
+  string blob_name = 4;
+  string processed_at = 5;
+  string status = 6;
+  repeated LabelTranslation labels = 7;
+}
+
+message DateLabelQuery {
+  string label = 1;
+  string from_iso_date = 2;
+  string to_iso_date = 3;
+}
+
+message FileNames {
+  repeated string names = 1;
+}
+
+message ScaleRequest {
+  string target = 1;
+  int32 desired_delta = 2;
+}
+
+message ScaleReply {
+  bool success = 1;
+  string message = 2;
+}
+

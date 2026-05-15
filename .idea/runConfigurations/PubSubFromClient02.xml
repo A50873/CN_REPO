@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PubSubFromClient02" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="25" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="GOOGLE_APPLICATION_CREDENTIALS" value="C:\ISEL\6_semestre\CN\keys\cn2526-t3-g07-2ba21e41d335.json" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="forumpubsub.PubSubForumClient" />
+    <module name="PubSub-ForumClient" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

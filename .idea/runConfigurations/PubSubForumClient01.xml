@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PubSubForumClient01" type="Application" factoryName="Application">
+    <envs>
+      <env name="GOOGLE_APPLICATION_CREDENTIALS" value="C:\ISEL\6_semestre\CN\keys\cn2526-t3-g07-2ba21e41d335.json" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="forumpubsub.PubSubForumClient" />
+    <module name="PubSub-ForumClient" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="forumpubsub.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
